@@ -12,6 +12,7 @@ class _wordSelectPageState extends State<wordSelectPage> {
   int ListNumber = 0;
   int displayListNumber = 0;
   final wordList = WordList();
+  final hundredTrueList = List.filled(100, true);
   List<bool> boolList = List.filled(2800, false);
 
   @override
@@ -37,6 +38,7 @@ class _wordSelectPageState extends State<wordSelectPage> {
   void _selectAll() {
     setState(() {
       wordList.allTrueSelected(ListNumber);
+      boolList.setRange(ListNumber * 100, ListNumber * 100 + 100, hundredTrueList);
     });
   }
 
@@ -99,11 +101,12 @@ class _wordSelectPageState extends State<wordSelectPage> {
                       color: Colors.white,
                       child: Container(
                         child: CheckboxListTile(
-                          value: wordList.getSelected(index2, ListNumber),
+                          value: boolList[index2 + ListNumber * 100],
                           controlAffinity: ListTileControlAffinity.leading,
                           onChanged: (value) {
                             setState(() {
                               wordList.setSelected(index2, ListNumber, value!);
+                              boolList[index2 + ListNumber * 100] = value;
                               // _checked[ListNumber][index2] = value!;
                             });
                           },

@@ -39,6 +39,11 @@ class WordList {
     return indexLearnList;
   }
 
+  Future<void> removeLearnList() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(saveKey);
+  }
+
   String getEnglish(int num, int bandNumber) {
     return ngslList[num + (bandNumber * 100)]['english'];
   }
@@ -67,25 +72,15 @@ class WordList {
     }).toList(); // mapメソッドはIterableを返すため、toList()でListに変換する
   }
 
-  void printedList() {
-    print('1');
-    print(indexLearnList);
-    print('2');
-    print(stringList);
-    print('3');
-  }
-
   void addLearnList() {
     indexLearnList = List.generate(ngslList.length, (i) => i)
         .where((i) => ngslList[i]['selected'] == true)
         .toList();
-    print(indexLearnList);
     saveList();
   }
 
   int getRandomLearnIndex() {
     if (indexLearnList.isEmpty) {
-      print('空');
       return ngslList.length - 1;
     } else {
       return indexLearnList[Random().nextInt(indexLearnList.length)];
@@ -103,6 +98,8 @@ class WordList {
   String getLearnPOS(int index) {
     return ngslList[index]['POS'];
   }
+
+
 
   List<Map<String, dynamic>> ngslList = [
     {'english': 'the', 'japanese': 'その', 'POS': 'article', 'selected': false},

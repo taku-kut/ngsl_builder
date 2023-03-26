@@ -102,8 +102,6 @@ class _LearnPageState extends State<LearnPage> {
                   onPressed: () {
                     randomIndex = wordList.getRandomLearnIndex();
                     nextQuiz(randomIndex);
-
-                    print(randomIndex);
                   },
                   style: OutlinedButton.styleFrom(
                       fixedSize: Size(160, 40),
@@ -118,8 +116,6 @@ class _LearnPageState extends State<LearnPage> {
                   onPressed: () {
                     randomIndex = wordList.getRandomLearnIndex();
                     nextQuiz(randomIndex);
-
-                    print(randomIndex);
                   },
                   style: OutlinedButton.styleFrom(
                       fixedSize: Size(160, 40),
