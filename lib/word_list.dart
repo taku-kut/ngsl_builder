@@ -87,19 +87,21 @@ class WordList {
     }
   }
 
-  String getLearnEnglish(int index) {
-    return ngslList[index]['english'];
+  String getLearnQuiz(int index,String key) {
+    return ngslList[index][key];
   }
 
-  String getLearnJapanese(int index) {
-    return ngslList[index]['japanese'];
+  String getLearnAnswer(int index,String key) {
+    return ngslList[index][key];
   }
 
   String getLearnPOS(int index) {
     return ngslList[index]['POS'];
   }
 
-
+  int getLearnListLength() {
+    return indexLearnList.length;
+  }
 
   List<Map<String, dynamic>> ngslList = [
     {'english': 'the', 'japanese': 'その', 'POS': 'article', 'selected': false},

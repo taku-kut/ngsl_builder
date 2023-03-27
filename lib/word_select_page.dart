@@ -46,7 +46,7 @@ class _wordSelectPageState extends State<wordSelectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('NGSL Builder'),
+        title: Text('NGSL単語アプリ'),
       ),
       body: Center(
         child: Container(

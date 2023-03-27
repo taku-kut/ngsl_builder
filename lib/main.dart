@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('NGSL Builder'),
+        title: Text('NGSL単語アプリ'),
       ),
       body: Center(
         child: Column(
